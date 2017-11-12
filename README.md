@@ -1,22 +1,50 @@
-## 欢迎使用LCTT选题工具
-![20160712更新](https://ooo.0o0.ooo/2016/07/12/57849fe03e72c.png)
-此工具为方便LCTT(LinuxCN Translate Team)选题将HTML页面转化为MarkDown语法格式的文件而设计。
+## LCTT选题工具
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
-使用方法：
+![](https://postimg.aliavv.com/mbp/4iqv4.png)
 
-1.  将需要翻译的文章拖到编辑框内
-2.  使用编辑器自带的按钮修改具体效果
-3.  使用按钮里的预览查看效果
-4.  [非必须]部分效果可通过第二个按钮来修改代码实现
-5.  点击右侧的'获取MarkDown!'
-6.  复制下方选择框内的Markdown格式的代码
 
-提交问题：到https://github.com/bestony/LCTT-Helper/issues
+此工具为帮助 LCTT 翻译组选题工作人员简化选题工作而准备，能够帮助选题人员快速将 HTML 内容处理成为 Markdown 
 
-贡献代码：Fork我的版本库，修改，并PR
+### 演示
 
-联系我：LCTT群内@xiqingongzi即可
+演示站点 ： lctt.ixiqin.com
 
-----------------------
-Update Log：
- - 2016/7/12: 更新了复制到剪贴板的功能/更新错误问题。
+![操作演示](https://postimg.aliavv.com/mbp/90h2h.gif)
+
+### 特性
+
+根据拖入的 HTML 内容，自动生成对应的 Markdown 内容，并添加了选题模板中的底部内容。
+
+### 安装
+
+1. 克隆源码或下载 zip 包至本地
+
+2. 将源码放在可以访问的 Web 环境下
+
+3. 访问该环境的网址
+
+### 使用
+
+1. 将需要转换的内容复制粘贴至左侧输入框内
+
+2. 点击上方的**生成MD**按钮
+
+3. 在右侧输入框中查看生成的 **Markdown内容** 的结果，并在右侧的输入框内进行调整。
+
+4. 点击上方的**复制代码**按钮
+
+5. 将生成的代码复制到对应的 `.md` 文件中
+
+
+### 贡献指南
+查看 [CONTRIBUTING](CONTRIBUTING.md)
+
+### LICENSE
+
+代码以 [MIT](LICENSE) 协议开源
+文档以 [CC-BY-ND](https://creativecommons.org/licenses/by-nd/4.0/) 协议分享
+
+### 致谢
+
+- [to-markdown](https://github.com/domchristie/to-markdown): An HTML to Markdown converter written in JavaScript 

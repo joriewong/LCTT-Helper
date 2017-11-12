@@ -1,88 +1,61 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="zh-cn">
 
 <head>
-    <meta charset="UTF-8">
-    <title>LCTT 选题工具</title>
-    <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.5.0/css/amazeui.min.css" type="text/css">
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.min.js"></script>
-    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.ie8polyfill.min.js"></script>
-    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.widgets.helper.min.js"></script>
-    <script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.5.0/js/amazeui.widgets.helper.min.js"></script>
-    <script charset="utf-8" src="kindeditor/kindeditor-all-min.js"></script>
-	<script charset="utf-8" src="kindeditor/lang/zh-CN.js"></script>
-	<script charset="utf-8" src="markdown/dist/to-markdown.js"></script>
-	<script src="clipboard.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LCTT选题工具</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/button.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/wangEditor.min.css" rel="stylesheet">
+    <link href="css/editormd.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-		<header class="am-topbar am-topbar-inverse">
-		  <h1 class="am-topbar-brand">
-		    <a href="http://edit.ixiqin.com">LCTT 选题工具</a>
-		  </h1>
-		  <div class="am-topbar-right">
-			  <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle="" onclick='window.location.href="https://github.com/bestony/LCTT-Helper"'>GitHub</button>
-			  </div>
-		</header>
-		<div class="am-g">
-		  <div class="am-u-sm-6" style="min-width: 668px;">
-				<div class="am-panel am-panel-default">
-				  <div class="am-panel-hd">此处粘贴HTML</div>
-				  <div class="am-panel-bd">
-				  <textarea id="ke" name="content"></textarea>
+    <!--<a href="https://github.com/LCTT/LCTT-Helper/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"-->
+            <!--alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>-->
+    <!--<header>-->
+        <!--<div class="container">-->
+            <!--<h1>LCTT选题工具</h1>-->
+            <!--<p>将内容复制到左侧输入框内，点击生成MD，在中部编辑器处进行二次修改，并在右侧的预览框中查看效果。</br>确认无误后点击上方的复制代码按钮即可将代码复制到剪贴板中！</p>-->
+            <!--<a class="btn btn-lg btn-info" id="generate">生成MD</a>-->
+            <!--<a class="btn btn-lg btn-warning" id="copy">复制代码</a>-->
 
-				  </div>
-				</div>
-		  </div>
-		  <div class="am-u-sm-6" style="float:left">
-				  <div class="am-panel am-panel-default">
-				  <div class="am-panel-hd">此处复制Markdown</div>
-				  <div class="am-panel-bd">
-				  <button type="button" class="am-btn am-btn-primary " name="getHtml">获取MarkDown!</button>
-				  <button type="button" class="am-btn am-btn-primary copy"   data-clipboard-action="copy" data-clipboard-target="#new">复制到剪贴板!</button>
-					<pre id="new">## 欢迎使用LCTT选题工具
+        <!--</div>-->
+    <!--</header>-->
+    <div class="content">
 
-此工具为方便LCTT(LinuxCN Translate Team)选题将HTML页面转化为MarkDown语法格式的文件而设计。
+        <div class="col-md-4">
+            <div id="editor"></div>
+        </div>
+        <div class="col-md-8">
+            <div id="editormd">
+                <textarea style="display:none;"></textarea>
+            </div>
 
-食用方法：
+        </div>
 
-1.  将需要翻译的文章拖到编辑框内
-2.  使用编辑器自带的按钮修改具体效果
-3.  使用按钮里的预览查看效果
-4.  [非必须]部分效果可通过第二个按钮来修改代码实现
-5.  点击右侧的'获取MarkDown!'
-6.  复制下方选择框内的Markdown格式的代码
+    </div>
 
+    <script type="text/javascript" src="js/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/wangEditor.min.js"></script>
+    <script type="text/javascript" src="js/lctt-menu.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/to-markdown.js"></script>
+    <script type="text/javascript" src="js/editormd.min.js"></script>
+    <script type="text/javascript" src="js/superClipBoard.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
 
-提交意见：到https://github.com/bestony/LCTT-Helper/issues
-
-贡献代码：Fork我的版本库，修改，并PR
-
-联系我：LCTT群内@xiqingongzi即可</pre>
-				  </div>
-				</div>
-		  </div>
-		</div>
-	<script>
-				var editor;
-				KindEditor.ready(function(K) {
-					editor = K.create('textarea[name="content"]', {
-						resizeType : 1,
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-						'preview','source','|',
-						'formatblock','bold', 'italic', 'underline','hr','table','code','wordpaste',
-						'removeformat', '|', 'insertorderedlist','insertunorderedlist', '|', 'image', 'link'
-							]
-					});
-					K('button[name=getHtml]').click(function(e) {
-						 $("pre").html(toMarkdown(editor.html(), { gfm: true }));
-					});
-				});
-				new Clipboard('.copy');
-	</script>
 </body>
 
 </html>
